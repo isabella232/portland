@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ COPY.content.project_name }}</title>
+
+    <!-- META TAGS -->
+    {% include '_meta.html' %}
+
+    <!-- FONTS -->
+    {% include '_fonts.html' %}
+
+    <!-- CSS -->
+    {{ CSS.push('less/app.less') }}
+    {{ CSS.render('css/app.min.css') }}
+    {% block extra_css %}{% endblock extra_css %}
+
+    {% block extra_head %}
+    {% endblock extra_head %}
+</head>
+<body>
+    <a class="sr-only" href="#content">Skip To Content</a>
+
+    {% block outer_content %}
+
+    {% block header_content %}
+    <header>
+        <div class="header-wrapper">
+            <a class="toolkit-link" href="http://tools.apps.npr.org">
+                <span class="logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></span>
+                Newsroom Toolkit
+            </a>
+        </div>
+
+        <h1>Title</h1>
+    </header>
+    {% endblock header_content %}
+
+    <section id="content">
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock content %}
+            {% block wide_content %}
+            {% endblock wide_content %}
+        </div>
+    </section>
+
+    {% endblock outer_content %}
+
+    {{ JS.push('js/lib/jquery.js') }}
+    {{ JS.push('js/lib/underscore.js') }}
+    {{ JS.push('js/lib/modernizr.js') }}
+    {{ JS.push('js/app_config.js') }}
+    {{ JS.push('js/app.js') }}
+    {{ JS.render('js/app-footer.min.js') }}
+
+    {% block extra_foot_js %}{% endblock extra_foot_js %}
+
+    {% block extra_foot %}
+    {% endblock extra_foot %}
+</body>
+</html>
