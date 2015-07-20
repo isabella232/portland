@@ -29,24 +29,28 @@ def index():
     Example view demonstrating rendering a simple HTML page.
     """
     context = make_context()
+    context['name'] = 'Home'
     return make_response(render_template('index.html', **context))
 
 @app.route('/factlist/')
 @oauth.oauth_required
 def factlist():
     context = make_context()
+    context['name'] = 'Factlist'
     return make_response(render_template('factlist.html', **context))
 
 @app.route('/quotable/')
 @oauth.oauth_required
 def quotable():
     context = make_context()
+    context['name'] = 'Quotable'
     return make_response(render_template('quotable.html', **context))
 
 @app.route('/waterbug/')
 @oauth.oauth_required
 def waterbug():
     context = make_context()
+    context['name'] = 'Waterbug'
     return make_response(render_template('waterbug.html', **context))
 
 app.register_blueprint(static.static)
