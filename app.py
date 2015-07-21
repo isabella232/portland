@@ -32,21 +32,21 @@ def index():
     context['name'] = 'Home'
     return make_response(render_template('index.html', **context))
 
-@app.route('/factlist/')
+@app.route('/factlist/index.html')
 @oauth.oauth_required
 def factlist():
     context = make_context()
     context['name'] = 'Factlist'
     return make_response(render_template('factlist.html', **context))
 
-@app.route('/quotable/')
+@app.route('/quotable/index.html')
 @oauth.oauth_required
 def quotable():
     context = make_context()
     context['name'] = 'Quotable'
     return make_response(render_template('quotable.html', **context))
 
-@app.route('/waterbug/')
+@app.route('/waterbug/index.html')
 @oauth.oauth_required
 def waterbug():
     context = make_context()

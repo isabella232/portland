@@ -1,16 +1,39 @@
 {% extends '_base.html' %}
 
+{% block header_content %}
+<header>
+    <div class="header-wrapper">
+        <a class="toolkit-link">
+            <span class="logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></span>
+            Newsroom Toolkit
+        </a>
+    </div>
+
+    <h1>{{ name }}</h1>
+</header>
+{% endblock header_content %}
+
 {% block content %}
     <h1>This thing will have a name</h1>
 
     <h2>List of tools</h2>
     <ul>
-        <li><a href="{{ url_for('factlist') }}">Factlist</a></li>
-        <li><a href="{{ url_for('quotable') }}">Quotable</a></li>
-        <li><a href="{{ url_for('waterbug') }}">Waterbug</a></li>
+        <li><a href="factlist/index.html">Factlist</a></li>
+        <li><a href="quotable/index.html">Quotable</a></li>
+        <li><a href="waterbug/index.html">Waterbug</a></li>
     </ul>
 {% endblock %}
 
 
 {% block wide_content %}
 {% endblock %}
+
+{% block jquery %}
+{% if not DEPLOYMENT_TARGET %}
+{{ JS.push('js/lib/jquery.js') }}
+{% else %}
+<script type="text/javascript">
+    window.$ = window.jQuery = require('./js/lib/jquery.js')
+</script>
+{% endif %}
+{% endblock jquery %}

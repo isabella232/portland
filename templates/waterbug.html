@@ -148,6 +148,16 @@
 {% block wide_content %}
 {% endblock %}
 
+{% block jquery %}
+{% if not DEPLOYMENT_TARGET %}
+{{ JS.push('js/lib/jquery.js') }}
+{% else %}
+<script type="text/javascript">
+    window.$ = window.jQuery = require('../js/lib/jquery.js')
+</script>
+{% endif %}
+{% endblock jquery %}
+
 {% block extra_foot_js %}
 {{ JS.push('js/lib/bootstrap.js') }}
 {{ JS.push('js/lib/fileinput.js') }}

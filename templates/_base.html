@@ -26,7 +26,7 @@
     {% block header_content %}
     <header>
         <div class="header-wrapper">
-            <a class="toolkit-link" href="{{ url_for('index') }}">
+            <a class="toolkit-link" href="../index.html">
                 <span class="logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></span>
                 Newsroom Toolkit
             </a>
@@ -47,7 +47,8 @@
 
     {% endblock outer_content %}
 
-    {{ JS.push('js/lib/jquery.js') }}
+    {% block jquery %}
+    {% endblock jquery %}
     {{ JS.push('js/lib/underscore.js') }}
     {{ JS.push('js/lib/modernizr.js') }}
     {{ JS.push('js/app_config.js') }}

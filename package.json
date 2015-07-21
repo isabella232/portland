@@ -1,8 +1,12 @@
 {
-    "name": "app-template",
-    "version": "1.0.0",
-    "dependencies": {
-        "less": "~1.7.0",
-        "universal-jst": "~1.0.5"
-    }
+  "name": "app-template",
+  "version": "1.0.0",
+  "dependencies": {
+    "less": "~1.7.0",
+    "universal-jst": "~1.0.5",
+    "electron-prebuilt": "~0.30.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.0.1"
+  }
 }

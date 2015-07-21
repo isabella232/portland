@@ -140,6 +140,15 @@ def deploy(remote='origin'):
 
     local('rsync -vr www/ ubuntu@%s:~/www/%s' % (app_config.FILE_SERVER, app_config.PROJECT_SLUG))
 
+@task
+def build_electron():
+    require('settings', provided_by=[production, staging])
+
+    update()
+    render.render_all()
+
+    local('electron-packager www Portland --platform=all --arch=all --version=0.30.0 --overwrite')
+
 """
 Destruction
 
