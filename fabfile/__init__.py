@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import os
+
 from fabric.api import local, require, settings, task
 from fabric.state import env
 from termcolor import colored
@@ -147,7 +149,10 @@ def build_electron():
     update()
     render.render_all()
 
-    local('electron-packager www Portland --platform=all --arch=all --version=0.30.0 --overwrite')
+    if not os.path.exists('electron'):
+        os.makedirs('electron')
+
+    local('electron-packager www Portland --platform=all --arch=all --version=0.30.0 --overwrite --out electron/')
 
 """
 Destruction
