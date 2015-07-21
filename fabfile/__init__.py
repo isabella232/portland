@@ -152,7 +152,7 @@ def build_electron():
     if not os.path.exists('electron'):
         os.makedirs('electron')
 
-    local('electron-packager www Portland --platform=all --arch=all --version=0.30.0 --overwrite --out electron/')
+    local('npm run-script build')
 
 """
 Destruction
